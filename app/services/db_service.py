@@ -1,0 +1,25 @@
+from app.db.connection import get_connection
+import pandas as pd
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+TABLE_NAMES = [
+    "vw_Last_10_Withdrawals_Tumbet",
+    "vw_Top_Paying_Players_1Day_Sum_Tumbet",
+    "vw_Top_Paying_Players_1Week_Sum_Tumbet",
+    "vw_Top_Paying_Players_1Month_Sum_Tumbet",
+]
+
+def fetch_table(table_name):
+    with get_connection() as conn:
+        query = f"SELECT * FROM ReportDB.BIDS.{table_name}"
+        df = pd.read_sql(query, conn)
+        return table_name[3:-7], df.to_dict(orient="records")
+
+def fetch_all_tables():
+    response = {}
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        futures = [executor.submit(fetch_table, table) for table in TABLE_NAMES]
+        for future in as_completed(futures):
+            table_key, table_data = future.result()
+            response[table_key] = table_data
+    return response

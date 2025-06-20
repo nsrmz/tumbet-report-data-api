@@ -14,10 +14,16 @@ TABLE_NAMES = [
     "tbl_vw_Top_Players_Who_Made_Most_of_The_Money_1Day_Sum_Tumbet",
     "tbl_vw_Top_Players_Who_Made_Most_of_The_Money_1Week_Sum_Tumbet",
     "tbl_vw_Top_Players_Who_Made_Most_of_The_Money_1Month_Sum_Tumbet",
-    "tbl_vw_Latest_10_Winners_Slots_Tumbet",
-    "tbl_vw_Highest_10_Earners_Slots_Tumbet",
+    "tbl_vw_Latest_100_Winners_Slots_Tumbet",
+    "tbl_vw_Highest_10_Earners_Slots_Tumbet_1Day",
+    "tbl_vw_Highest_10_Earners_Slots_Tumbet_1Week",
+    "tbl_vw_Highest_10_Earners_Slots_Tumbet_1Month",
+    "tbl_vw_Top_Payer_Providers_Slots_1Day_Sum_Tumbet",
     "tbl_vw_Top_Payer_Providers_Slots_1Week_Sum_Tumbet",
+    "tbl_vw_Top_Payer_Providers_Slots_1Month_Sum_Tumbet",
+    "tbl_vw_Top_Paying_Slots_1Day_Sum_Tumbet",
     "tbl_vw_Top_Paying_Slots_1Week_Sum_Tumbet",
+    "tbl_vw_Top_Paying_Slots_1Month_Sum_Tumbet",
 ]
 
 def fetch_table(table_name):

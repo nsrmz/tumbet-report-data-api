@@ -31,7 +31,7 @@ def fetch_table(table_name):
         query = f"SELECT * FROM ReportDB.BIDS.{table_name} (nolock)"
         df = pd.read_sql(query, conn)
         print(table_name, "   done")
-        return table_name[7:-7], df.to_dict(orient="records")
+        return table_name[7:].replace('_Tumbet', ''), df.to_dict(orient="records")
 
 def fetch_all_tables():
     start_time = time.time()
